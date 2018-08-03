@@ -9,6 +9,7 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+@property (strong, nonatomic) IBOutlet UIView *mUIView;
 
 @end
 
@@ -18,6 +19,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 }
+
+
+
+
+- (IBAction)takePhoto:(id)sender {
+    
+}
+
+
 
 
 - (void)didReceiveMemoryWarning {
