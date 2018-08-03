@@ -8,11 +8,11 @@
 
 #import "ViewController.h"
 #import <GPUImageView.h>
-#import <GPUImageVideoCamera.h>
+#import <GPUImageStillCamera.h>
 
 @interface ViewController ()
 @property (strong, nonatomic) IBOutlet UIView *mUIView;
-@property (strong, nonatomic) GPUImageVideoCamera *mCamera;
+@property (strong, nonatomic) GPUImageStillCamera *mCamera;
 @property (strong, nonatomic) GPUImageView *mGPUImageView;
 @end
 
@@ -21,12 +21,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _mCamera = [[GPUImageVideoCamera alloc] initWithSessionPreset:AVCaptureSessionPresetHigh cameraPosition:AVCaptureDevicePositionBack];
+    //初始化相机
+    _mCamera = [[GPUImageStillCamera alloc] initWithSessionPreset:AVCaptureSessionPresetHigh cameraPosition:AVCaptureDevicePositionBack];
     _mCamera.outputImageOrientation = UIInterfaceOrientationPortrait;
+    
+    //初始化GPUImageView
     _mGPUImageView = [[GPUImageView alloc] initWithFrame:_mUIView.frame];
+    
+    //把GPUImageView显示到UIView上
     [_mUIView addSubview:_mGPUImageView];
     
+    //吧相机数据输出到GPUImageView上
     [_mCamera addTarget:_mGPUImageView];
+    
+    //启动相机
+    [_mCamera startCameraCapture];
     
 }
 
@@ -34,7 +43,6 @@
 
 
 - (IBAction)takePhoto:(id)sender {
-    [_mCamera startCameraCapture];
 }
 
 
