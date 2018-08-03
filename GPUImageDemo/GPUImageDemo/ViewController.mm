@@ -8,9 +8,11 @@
 
 #import "ViewController.h"
 #import <GPUImageView.h>
+#import <GPUImageVideoCamera.h>
 
 @interface ViewController ()
 @property (strong, nonatomic) IBOutlet UIView *mUIView;
+@property (strong, nonatomic) GPUImageVideoCamera *mCamera;
 @property (strong, nonatomic) GPUImageView *mGPUImageView;
 @end
 
@@ -19,7 +21,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _mCamera = [[GPUImageVideoCamera alloc] initWithSessionPreset:AVCaptureSessionPresetHigh cameraPosition:AVCaptureDevicePositionBack];
+    _mCamera.outputImageOrientation = UIInterfaceOrientationPortrait;
     _mGPUImageView = [[GPUImageView alloc] initWithFrame:_mUIView.frame];
+    [_mUIView addSubview:_mGPUImageView];
+    
+    [_mCamera addTarget:_mGPUImageView];
     
 }
 
@@ -27,7 +34,7 @@
 
 
 - (IBAction)takePhoto:(id)sender {
-    
+    [_mCamera startCameraCapture];
 }
 
 
