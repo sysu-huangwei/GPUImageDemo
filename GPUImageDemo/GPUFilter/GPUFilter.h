@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <GPUImageFilter.h>
 
-@interface GPUFilter : NSObject
+@interface GPUFilter : GPUImageFilter
 
 @end

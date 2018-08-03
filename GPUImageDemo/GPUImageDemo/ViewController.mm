@@ -10,10 +10,14 @@
 #import <GPUImageView.h>
 #import <GPUImageStillCamera.h>
 
+#import "GPUFilter.h"
+
 @interface ViewController ()
 @property (strong, nonatomic) IBOutlet UIView *mUIView;
 @property (strong, nonatomic) GPUImageStillCamera *mCamera;
 @property (strong, nonatomic) GPUImageView *mGPUImageView;
+
+@property (strong, nonatomic) GPUFilter *filter;
 @end
 
 @implementation ViewController
@@ -31,8 +35,16 @@
     //把GPUImageView显示到UIView上
     [_mUIView addSubview:_mGPUImageView];
     
-    //吧相机数据输出到GPUImageView上
-    [_mCamera addTarget:_mGPUImageView];
+    //初始化滤镜
+    _filter = [[GPUFilter alloc] init];
+
+    
+    //把相机数据输出到滤镜上
+    [_mCamera addTarget:_filter];
+    //把滤镜数据输出到GPUImageView上
+    [_filter addTarget:_mGPUImageView];
+    
+    
     
     //启动相机
     [_mCamera startCameraCapture];
@@ -41,8 +53,11 @@
 
 
 
-
+//拍照
 - (IBAction)takePhoto:(id)sender {
+    [_mCamera capturePhotoAsPNGProcessedUpToFilter:_filter withCompletionHandler:^(NSData *processedPNG, NSError *error) {
+        
+    }];
 }
 
 

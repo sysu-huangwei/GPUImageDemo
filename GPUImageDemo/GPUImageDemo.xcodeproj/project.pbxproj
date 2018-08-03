@@ -10,6 +10,7 @@
 		854969A877791936BD86F2B2 /* libPods-GPUFilter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A50D04E63502DA7B3733E02A /* libPods-GPUFilter.a */; };
 		C5A507D521146006006F986D /* GPUFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A507D421146006006F986D /* GPUFilter.m */; };
 		C5A507D621146006006F986D /* GPUFilter.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C5A507D321146006006F986D /* GPUFilter.h */; };
+		C5A507DC21146F6A006F986D /* libGPUFilter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C5A507D121146006006F986D /* libGPUFilter.a */; };
 		C5C38D3921143ED100353508 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C38D3821143ED100353508 /* AppDelegate.m */; };
 		C5C38D3C21143ED100353508 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C5C38D3B21143ED100353508 /* ViewController.mm */; };
 		C5C38D3F21143ED100353508 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5C38D3D21143ED100353508 /* Main.storyboard */; };
@@ -18,6 +19,16 @@
 		C5C38D4721143ED200353508 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C38D4621143ED200353508 /* main.m */; };
 		FB26612C72A493EDB9E3F3C0 /* libPods-GPUImageDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F4A671CA0B598F6DC5B0D5 /* libPods-GPUImageDemo.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C5A507DA21146F65006F986D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C5C38D2C21143ED100353508 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C5A507D021146006006F986D;
+			remoteInfo = GPUFilter;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		C5A507CF21146006006F986D /* CopyFiles */ = {
@@ -67,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5A507DC21146F6A006F986D /* libGPUFilter.a in Frameworks */,
 				FB26612C72A493EDB9E3F3C0 /* libPods-GPUImageDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -174,6 +186,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C5A507DB21146F65006F986D /* PBXTargetDependency */,
 			);
 			name = GPUImageDemo;
 			productName = GPUImageDemo;
@@ -340,6 +353,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C5A507DB21146F65006F986D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C5A507D021146006006F986D /* GPUFilter */;
+			targetProxy = C5A507DA21146F65006F986D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C5C38D3D21143ED100353508 /* Main.storyboard */ = {
