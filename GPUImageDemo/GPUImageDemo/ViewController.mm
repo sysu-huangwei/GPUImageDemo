@@ -7,17 +7,20 @@
 //
 
 #import "ViewController.h"
+#import <GPUImageView.h>
 
 @interface ViewController ()
 @property (strong, nonatomic) IBOutlet UIView *mUIView;
-
+@property (strong, nonatomic) GPUImageView *mGPUImageView;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    _mGPUImageView = [[GPUImageView alloc] initWithFrame:_mUIView.frame];
+    
 }
 
 

@@ -8,13 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		C5C38D3921143ED100353508 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C38D3821143ED100353508 /* AppDelegate.m */; };
-		C5C38D3C21143ED100353508 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C38D3B21143ED100353508 /* ViewController.m */; };
+		C5C38D3C21143ED100353508 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C5C38D3B21143ED100353508 /* ViewController.mm */; };
 		C5C38D3F21143ED100353508 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5C38D3D21143ED100353508 /* Main.storyboard */; };
 		C5C38D4121143ED200353508 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5C38D4021143ED200353508 /* Assets.xcassets */; };
 		C5C38D4421143ED200353508 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5C38D4221143ED200353508 /* LaunchScreen.storyboard */; };
 		C5C38D4721143ED200353508 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C38D4621143ED200353508 /* main.m */; };
+		C5C38D5C2114522C00353508 /* GPUImageFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C38D5B2114522C00353508 /* GPUImageFilter.m */; };
+		C5C38D5D2114522C00353508 /* GPUImageFilter.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C5C38D5A2114522C00353508 /* GPUImageFilter.h */; };
 		FB26612C72A493EDB9E3F3C0 /* libPods-GPUImageDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F4A671CA0B598F6DC5B0D5 /* libPods-GPUImageDemo.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C5C38D562114522C00353508 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				C5C38D5D2114522C00353508 /* GPUImageFilter.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		04F4A671CA0B598F6DC5B0D5 /* libPods-GPUImageDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GPUImageDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,12 +39,15 @@
 		C5C38D3721143ED100353508 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C5C38D3821143ED100353508 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C5C38D3A21143ED100353508 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C5C38D3B21143ED100353508 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C5C38D3B21143ED100353508 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		C5C38D3E21143ED100353508 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C5C38D4021143ED200353508 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C5C38D4321143ED200353508 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C5C38D4521143ED200353508 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5C38D4621143ED200353508 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C5C38D582114522C00353508 /* libGPUImageFilter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGPUImageFilter.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5C38D5A2114522C00353508 /* GPUImageFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageFilter.h; sourceTree = "<group>"; };
+		C5C38D5B2114522C00353508 /* GPUImageFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageFilter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +56,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB26612C72A493EDB9E3F3C0 /* libPods-GPUImageDemo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5C38D552114522C00353508 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				C5C38D3621143ED100353508 /* GPUImageDemo */,
+				C5C38D592114522C00353508 /* GPUImageFilter */,
 				C5C38D3521143ED100353508 /* Products */,
 				B4B6D49F0E7D6D2DE8FD917F /* Pods */,
 				4A433E215048451440BE9362 /* Frameworks */,
@@ -75,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				C5C38D3421143ED100353508 /* GPUImageDemo.app */,
+				C5C38D582114522C00353508 /* libGPUImageFilter.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -85,7 +112,7 @@
 				C5C38D3721143ED100353508 /* AppDelegate.h */,
 				C5C38D3821143ED100353508 /* AppDelegate.m */,
 				C5C38D3A21143ED100353508 /* ViewController.h */,
-				C5C38D3B21143ED100353508 /* ViewController.m */,
+				C5C38D3B21143ED100353508 /* ViewController.mm */,
 				C5C38D3D21143ED100353508 /* Main.storyboard */,
 				C5C38D4021143ED200353508 /* Assets.xcassets */,
 				C5C38D4221143ED200353508 /* LaunchScreen.storyboard */,
@@ -93,6 +120,15 @@
 				C5C38D4621143ED200353508 /* main.m */,
 			);
 			path = GPUImageDemo;
+			sourceTree = "<group>";
+		};
+		C5C38D592114522C00353508 /* GPUImageFilter */ = {
+			isa = PBXGroup;
+			children = (
+				C5C38D5A2114522C00353508 /* GPUImageFilter.h */,
+				C5C38D5B2114522C00353508 /* GPUImageFilter.m */,
+			);
+			path = GPUImageFilter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -117,6 +153,23 @@
 			productReference = C5C38D3421143ED100353508 /* GPUImageDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C5C38D572114522C00353508 /* GPUImageFilter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C5C38D5E2114522C00353508 /* Build configuration list for PBXNativeTarget "GPUImageFilter" */;
+			buildPhases = (
+				C5C38D542114522C00353508 /* Sources */,
+				C5C38D552114522C00353508 /* Frameworks */,
+				C5C38D562114522C00353508 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GPUImageFilter;
+			productName = GPUImageFilter;
+			productReference = C5C38D582114522C00353508 /* libGPUImageFilter.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -127,6 +180,9 @@
 				ORGANIZATIONNAME = meitu;
 				TargetAttributes = {
 					C5C38D3321143ED100353508 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					C5C38D572114522C00353508 = {
 						CreatedOnToolsVersion = 9.4.1;
 					};
 				};
@@ -145,6 +201,7 @@
 			projectRoot = "";
 			targets = (
 				C5C38D3321143ED100353508 /* GPUImageDemo */,
+				C5C38D572114522C00353508 /* GPUImageFilter */,
 			);
 		};
 /* End PBXProject section */
@@ -214,9 +271,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5C38D3C21143ED100353508 /* ViewController.m in Sources */,
+				C5C38D3C21143ED100353508 /* ViewController.mm in Sources */,
 				C5C38D4721143ED200353508 /* main.m in Sources */,
 				C5C38D3921143ED100353508 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5C38D542114522C00353508 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5C38D5C2114522C00353508 /* GPUImageFilter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,6 +455,30 @@
 			};
 			name = Release;
 		};
+		C5C38D5F2114522C00353508 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 68A6PPJ4F3;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C5C38D602114522C00353508 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 68A6PPJ4F3;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -407,6 +496,15 @@
 			buildConfigurations = (
 				C5C38D4B21143ED200353508 /* Debug */,
 				C5C38D4C21143ED200353508 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C5C38D5E2114522C00353508 /* Build configuration list for PBXNativeTarget "GPUImageFilter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C5C38D5F2114522C00353508 /* Debug */,
+				C5C38D602114522C00353508 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
