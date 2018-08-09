@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import <GPUImageView.h>
 #import <GPUImageStillCamera.h>
+#import <GPUImagePicture.h>
 
 #import "GPUFilter.h"
 
@@ -55,8 +56,18 @@
 
 //拍照
 - (IBAction)takePhoto:(id)sender {
+
+    
+    __weak typeof(self) weakSelf = self;
     [_mCamera capturePhotoAsPNGProcessedUpToFilter:_filter withCompletionHandler:^(NSData *processedPNG, NSError *error) {
-        
+        UIImage* image = [[UIImage alloc] initWithData:processedPNG];
+        if(image != nil){
+            [weakSelf.mCamera stopCameraCapture];
+            GPUImagePicture* picture = [[GPUImagePicture alloc] initWithImage:image];
+            [picture addTarget:weakSelf.filter];
+            [picture useNextFrameForImageCapture];
+            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+        }
     }];
 }
 
