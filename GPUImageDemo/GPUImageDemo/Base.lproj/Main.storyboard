@@ -47,6 +47,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="captureButton" destination="Htu-jO-t2t" id="GsO-iv-dp9"/>
                         <outlet property="mUIView" destination="8sb-2I-GXm" id="XnW-g3-4p1"/>
                     </connections>
                 </viewController>
