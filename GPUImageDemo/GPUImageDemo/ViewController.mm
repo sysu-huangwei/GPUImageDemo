@@ -61,21 +61,25 @@
 
 //拍照
 - (IBAction)takePhoto:(id)sender {
+    //如果是实时预览，就是拍照功能
     if (_isRealTime) {
         __weak typeof(self) weakSelf = self;
+        //GPUImageStillCamera的拍照接口
         [_mCamera capturePhotoAsPNGProcessedUpToFilter:_filter withCompletionHandler:^(NSData *processedPNG, NSError *error) {
-            UIImage* image = [[UIImage alloc] initWithData:processedPNG];
+            UIImage* image = [[UIImage alloc] initWithData:processedPNG];//拍照图
             if(image != nil){
-                [weakSelf.mCamera stopCameraCapture];
+                [weakSelf.mCamera stopCameraCapture];//停止预览
                 weakSelf.isRealTime = NO;
                 weakSelf.captureButton.titleLabel.text = @"返回";
-                GPUImagePicture* picture = [[GPUImagePicture alloc] initWithImage:image];
-                [picture addTarget:weakSelf.filter];
-                [picture useNextFrameForImageCapture];
-                UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+                
+                GPUImagePicture* picture = [[GPUImagePicture alloc] initWithImage:image];//将拍照图初始化成GPUImagePicture对象
+                [picture addTarget:weakSelf.filter];//picture输出到滤镜上
+                [picture useNextFrameForImageCapture];//开始渲染
+                UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);//将结果图保存到系统相册
             }
         }];
     }
+    //如果不是实时预览，就是返回预览
     else {
         [_mCamera startCameraCapture];
         _isRealTime = YES;

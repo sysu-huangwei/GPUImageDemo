@@ -8,6 +8,7 @@
 
 #import "GPUFilter.h"
 
+//片源着色器
 NSString *const kGPUImagethroughFragmentShaderString = SHADER_STRING
 (
  varying highp vec2 textureCoordinate;
@@ -29,6 +30,7 @@ NSString *const kGPUImagethroughFragmentShaderString = SHADER_STRING
 @implementation GPUFilter
 
 - (instancetype) init {
+    //使用片元着色器
     return [super initWithFragmentShaderFromString:kGPUImagethroughFragmentShaderString];
 }
 
