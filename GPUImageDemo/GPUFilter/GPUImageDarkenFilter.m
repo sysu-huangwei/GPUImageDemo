@@ -1,15 +1,17 @@
 //
-//  GPUFilter.m
+//  GPUImageDarkenFilter.m
 //  GPUFilter
 //
-//  Created by HW on 2018/8/3.
+//  Created by HW on 2018/8/29.
 //  Copyright © 2018年 meitu. All rights reserved.
 //
 
-#import "GPUFilter.h"
+#import "GPUImageDarkenFilter.h"
+
+@implementation GPUImageDarkenFilter
 
 //片源着色器
-NSString *const kGPUImagethroughFragmentShaderString = SHADER_STRING
+NSString *const kGPUImagethroughFragmentShaderStringBrighten = SHADER_STRING
 (
  varying highp vec2 textureCoordinate;
  uniform sampler2D inputImageTexture;
@@ -25,13 +27,12 @@ NSString *const kGPUImagethroughFragmentShaderString = SHADER_STRING
     
     gl_FragColor = outputColor;
 }
-);
+ );
 
-@implementation GPUFilter
 
 - (instancetype) init {
     //使用片元着色器
-    return [super initWithFragmentShaderFromString:kGPUImagethroughFragmentShaderString];
+    return [super initWithFragmentShaderFromString:kGPUImagethroughFragmentShaderStringBrighten];
 }
 
 @end

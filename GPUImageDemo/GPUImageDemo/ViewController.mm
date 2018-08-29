@@ -11,7 +11,9 @@
 #import <GPUImageStillCamera.h>
 #import <GPUImagePicture.h>
 
-#import "GPUFilter.h"
+#import "GPUImageBrightenFilter.h"
+#import "GPUImageDarkenFilter.h"
+#import "MTTwoOnlineFilter.h"
 
 @interface ViewController ()
 @property (strong, nonatomic) IBOutlet UIButton *captureButton;//拍照按钮
@@ -19,7 +21,9 @@
 @property (strong, nonatomic) GPUImageStillCamera *mCamera; //相机
 @property (strong, nonatomic) GPUImageView *mGPUImageView; //GPUImageView
 
-@property (strong, nonatomic) GPUFilter *filter; //滤镜
+@property (strong, nonatomic) GPUImageBrightenFilter *brightenFilter; //变亮滤镜
+@property (strong, nonatomic) GPUImageDarkenFilter *darkenFilter; //变暗滤镜
+@property (strong, nonatomic) MTTwoOnlineFilter *twoFilter; //切换双滤镜
 
 @property BOOL isRealTime; //当前是否在实时预览 YES:实时预览  NO:拍后
 
@@ -42,13 +46,15 @@
     [_mUIView addSubview:_mGPUImageView];
     
     //初始化滤镜
-    _filter = [[GPUFilter alloc] init];
+    _brightenFilter = [[GPUImageBrightenFilter alloc] init];
+    _darkenFilter = [[GPUImageDarkenFilter alloc] init];
+    _twoFilter = [[MTTwoOnlineFilter alloc] initWithReplaceFilter:_brightenFilter CurrentFilter:_darkenFilter];
 
     
     //把相机数据输出到滤镜上
-    [_mCamera addTarget:_filter];
+    [_mCamera addTarget:_twoFilter];
     //把滤镜数据输出到GPUImageView上
-    [_filter addTarget:_mGPUImageView];
+    [_twoFilter addTarget:_mGPUImageView];
     
     
     
@@ -65,7 +71,7 @@
     if (_isRealTime) {
         __weak typeof(self) weakSelf = self;
         //GPUImageStillCamera的拍照接口
-        [_mCamera capturePhotoAsPNGProcessedUpToFilter:_filter withCompletionHandler:^(NSData *processedPNG, NSError *error) {
+        [_mCamera capturePhotoAsPNGProcessedUpToFilter:_twoFilter withCompletionHandler:^(NSData *processedPNG, NSError *error) {
             UIImage* image = [[UIImage alloc] initWithData:processedPNG];//拍照图
             if(image != nil){
                 [weakSelf.mCamera stopCameraCapture];//停止预览
@@ -73,7 +79,7 @@
                 weakSelf.captureButton.titleLabel.text = @"返回";
                 
                 GPUImagePicture* picture = [[GPUImagePicture alloc] initWithImage:image];//将拍照图初始化成GPUImagePicture对象
-                [picture addTarget:weakSelf.filter];//picture输出到滤镜上
+                [picture addTarget:weakSelf.twoFilter];//picture输出到滤镜上
                 [picture useNextFrameForImageCapture];//开始渲染
                 UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);//将结果图保存到系统相册
             }
@@ -88,6 +94,10 @@
 }
 
 
+- (IBAction)sliderValueChange:(id)sender {
+    UISlider* slider = (UISlider*)sender;
+    [_twoFilter setDisFactor:slider.value];
+}
 
 
 - (void)didReceiveMemoryWarning {
